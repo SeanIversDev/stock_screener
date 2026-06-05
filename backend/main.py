@@ -14,6 +14,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routers import screener
+from routers import stocks
 
 app = FastAPI(
     title="Stock Screener API",
@@ -37,7 +38,7 @@ app.add_middleware(
 # Routers
 # ----------------------------------------------------------------------
 app.include_router(screener.router, prefix="/api")
-
+app.include_router(stocks.router, prefix="/api")
 
 # ----------------------------------------------------------------------
 # Health check
